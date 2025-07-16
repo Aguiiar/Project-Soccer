@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset='utf-8'>
+	<title>New Team</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<header>
+		<div th:replace="menu :: menu"></div>
+	</header>
+
+	<div class="container">
+		<h1 class="title">Cadastrar Times</h1>
+		<div class="formPlayersTeam">
+			<form th:action="${team.id} != null ? @{'/team/update/' + ${team.id}} : @{/save}" th:object="${team}"
+				method="post">
+				<fieldset>
+					<div class="boxLabelnput">
+						<label for="name">Nome</label>
+						<input type="text" id="name" th:field="*{name}" placeholder="Nome do time">
+					</div>
+					<div class="boxInvalidText">
+						<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></div>
+					</div>
+				</fieldset>
+				<button type="submit" th:text="${team.id} != null ? 'Alterar' : 'Cadastrar'"
+					class="btn">Cadastrar</button>
+			</form>
+
+			<h2 class="subTitle">Times</h2>
+		</div>
+
+		<div class="container-table-img-team">
+
+			<table>
+				<thead>
+					<tr>
+
+						<th>Nome</th>
+						<th>Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="team : ${teams}">
+
+						<td th:text="${team.name}"></td>
+						<td class="actionsBox">
+
+							<form th:action="@{'/team/edit/' + ${team.id}}" method="get">
+								<button type="submit" class="editBtn">Editar</button>
+							</form>
+							<form th:action="@{'/team/delete/' + ${team.id}}" method="post"
+								onsubmit="return confirm('Dejesa realmente excluir?');">
+								<button type="submit" class="deleteBtn">Excluir</button>
+							</form>
+						</td>
+					</tr>
+					<tr th:if="${#lists.isEmpty(teams)}">
+						<td class="emptyMessage" colspan="3">Nenhum time cadastrado.</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="box-img-team-player">
+				<img th:src="@{/images/ball-team.png}" width="400" height="300" />
+			</div>
+
+		</div>
+	</div>
+
+	<div class="space-image-absolute"></div>
+	<footer>
+		<div th:replace="menu :: footer"></div>
+	</footer>
+	<link rel='stylesheet' th:href="@{/css/style.css}" />
+	<script th:src="@{/js/filter.js}"></script>
+
+</body>
+
+</html>

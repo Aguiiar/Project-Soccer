@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Team</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header>
+  <div th:replace="menu :: menu"></div>
+</header>
+<div class="container">
+  <h1 class="title">Cadastrar Jogador</h1>
+  <div class="formPlayersTeam">
+    <form th:action="@{/player/save}" th:object="${player}" method="post">
+      <input type="hidden" th:field="*{id}" />
+      <fieldset>
+        <div class="boxLabelnput">
+          <label for="name">Nome</label>
+          <input id="name" type="text" th:field="*{name}" placeholder="Nome">
+        </div>
+        <div class="boxInvalidText">
+          <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="boxLabelnput">
+          <label for="age">Idade</label>
+          <input id="age" type="number" th:field="*{age}" placeholder="Idade" min="1" max="50">
+        </div>
+        <div class="boxInvalidText">
+          <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="error"></div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="boxLabelnput">
+          <label for="position">Posição</label>
+          <select th:field="*{position}">
+            <option value="">Selecione a posição</option>
+            <option id="position" th:each="pos : ${positions}" th:value="${pos}" th:text="${pos}"> </option>
+          </select>
+        </div>
+        <div class="boxInvalidText">
+          <div th:if="${#fields.hasErrors('position')}" th:errors="*{position}" class="error"></div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="boxLabelnput">
+          <label for="team">Time </label>
+          <select th:field="*{team}">
+            <option value="">Selecione um time</option>
+            <option id="team" th:each="t: ${teams}" th:value="${t.id}" th:text="${t.name}"></option>
+          </select>
+        </div>
+        <div class="boxInvalidText">
+          <div th:if="${#fields.hasErrors('team')}" th:errors="*{team}" class="error"></div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="boxLabelnput">
+          <label class="footLabel">Pé</label>
+          <label for="destro">Destro</label>
+          <input type="radio" th:field="*{foot}" value="Destro" class="pe" id="destro">
+          <label for="canhoto">Canhoto</label>
+          <input type="radio" th:field="*{foot}" value="Canhoto" class="pe" id="canhoto">
+        </div>
+        <div class="boxInvalidText">
+          <div th:if="${#fields.hasErrors('foot')}" th:errors="*{foot}" id="errorFoot"></div>
+        </div>
+      </fieldset>
+      <button type="submit" th:text="${player.id} != null ? 'Alterar' : 'Cadastrar'" class="btn">Cadastrar</button>
+    </form>
+    <h2 class="subTitle">Jogadores</h2>
+  </div>
+  <div class="filterContainers">
+  <div>
+    <button id="btnToggleFilter" class="btnFilterToggleAndSearch">⚙️ Filtro</button>
+  </div>
+  <div>
+  <form id="searchForm" th:action="@{/player/search}" method="get" class="formSearch">
+    <fieldset class="fieldsetSearch">
+      <label for="searchPlayer"> Buscar Jogador</label>
+      <div class="inputSearch">
+        <input type="text" id="searchPlayer" name="searchTerm" th:value="${searchTerm}"
+								placeholder="Digite o Nome" autocomplete="off" list="player-suggestions" />
+        <div class="suggestions-box" id="suggestions"></div>
+      </div>
+    </fieldset>
+    </div>
+    <div>
+      <button type="submit" class="btnFilterToggleAndSearch">Buscar</button>
+    </div>
+    </div>
+  </form>
+  <div id="MenuFilter" class="MenuFilter hidden">
+    <form th:action="@{/player/filter}" method="get" class="filter-form">
+      <fieldset class="filterTeam" th:if="${#lists.isEmpty(teams) == false}">
+        <legend>Filtrar Por time</legend>
+        <label th:each="t : ${teams}">
+          <input type="checkbox" name="teamIds" th:value="${t.id}" />
+          <span th:text="${t.name}"></span> </label>
+      </fieldset>
+      <fieldset>
+        <legend>Filtrar por Pé:</legend>
+        <label>
+          <input type="checkbox" name="feet" value="Destro" />
+          Destro</label>
+        <label>
+          <input type="checkbox" name="feet" value="Canhoto" />
+          Canhoto</label>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Filtrar Idade por mais:</legend>
+        <label>
+          <input type="radio" name="order" value="asc" />
+          Novo</label>
+        <label>
+          <input type="radio" name="order" value="desc" />
+          Velho</label>
+        </label>
+      </fieldset>
+      <button type="submit" class="btn">Filtrar</button>
+    </form>
+  </div>
+  <div class="container-table-img-player">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Idade</th>
+          <th>Posição</th>
+          <th>Pé</th>
+          <th>Time</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="p : ${players}">
+          <td th:text="${p.name}">Nome</td>
+          <td th:text="${p.age}">Idade</td>
+          <td th:text="${p.position}">Posição</td>
+          <td th:text="${p.foot}">Pé</td>
+          <td th:text="${p.team != null ? p.team.name : 'Sem time'}">Time</td>
+          <td class="actionsBox"><form th:action="@{'/player/edit/' + ${p.id}}" method="get">
+              <button type="submit" class="editBtn">Editar</button>
+            </form>
+            <form th:action="@{'/player/delete/' + ${p.id}}" method="post"
+								onsubmit="return confirm('Desejar realmente excluir');">
+              <button type="submit" class="deleteBtn">Excluir</button>
+            </form></td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(players)}">
+          <td class="emptyMessage" colspan="6">Nenhum jogador cadastrado.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="box-img-team-player"> <img th:src="@{/images/jogador.png}" width="300" height="300" /> </div>
+  </div>
+</div>
+<div class="space-image-absolute"></div>
+<footer>
+  <div th:replace="menu :: footer"></div>
+</footer>
+<link rel='stylesheet' th:href="@{/css/style.css}" />
+<script th:src="@{/js/filter.js}"></script>
+</body>
+</html>

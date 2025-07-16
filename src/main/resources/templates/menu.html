@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset='utf-8'>
+	<title>Menu</title>
+	<link rel='stylesheet' th:href="@{/css/style.css}" />
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<nav th:fragment="menu" id="menuMobile">
+		<button id="btnMobile">Menu
+			<span id="hamburger"></span>
+		</button>
+		<ul id="menu">
+			<img th:src="@{/images/icone-menu-team.png}" width="50" height="50"/>
+			<li><a th:href="@{/team}">Times</a></li>
+			<img th:src="@{/images/icone-menu-player.png}" width="50" height="50"/>
+			<li><a th:href="@{/player}">Jogadores</a></li>
+		</ul>
+	</nav>
+	
+	<footer th:fragment="footer">
+		<p>Todos os direitos reservados - Soccer Project - 2025</p>
+	</footer>
+	
+
+	<script th:src="@{/js/filter.js}"></script>
+</body>
+
+
+</html>
