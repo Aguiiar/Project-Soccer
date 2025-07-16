@@ -22,7 +22,7 @@ public class Player {
 
 	@NotNull(message = "Idade é obrigatório")
 	@Min(value = 1, message = "Idade deve ser maior que 0")
-	@Max(value = 50, message = "Idade deve ser no máximo 50")
+	@Max(value = 45, message = "Idade deve ser no máximo 45")
 	private Integer age;
 
 	@NotBlank(message = "Posição é obrigatória")
