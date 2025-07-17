@@ -22,13 +22,13 @@ public class Player {
 
 	@NotNull(message = "Idade é obrigatório")
 	@Min(value = 1, message = "Idade deve ser maior que 0")
-	@Max(value = 45, message = "Idade deve ser no máximo 45")
+	@Max(value = 45, message = "Idade máxima 45 anos")
 	private Integer age;
 
 	@NotBlank(message = "Posição é obrigatória")
 	private String position;
 
-	@NotBlank(message = "Pé é obrigatória")
+	@NotBlank(message = "Pé é obrigatório")
 	private String foot;
 
 	@ManyToOne

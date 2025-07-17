@@ -14,7 +14,7 @@ public class Team {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotBlank(message  = "O nome do time é obrigatorio.")
+	@NotBlank(message  = "O nome do time é obrigatório.")
 	private String name;
 	
 	

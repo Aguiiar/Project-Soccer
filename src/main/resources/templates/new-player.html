@@ -100,13 +100,13 @@
   <div id="MenuFilter" class="MenuFilter hidden">
     <form th:action="@{/player/filter}" method="get" class="filter-form">
       <fieldset class="filterTeam" th:if="${#lists.isEmpty(teams) == false}">
-        <legend>Filtrar Por time</legend>
+        <legend>Filtrar Time</legend>
         <label th:each="t : ${teams}">
           <input type="checkbox" name="teamIds" th:value="${t.id}" />
           <span th:text="${t.name}"></span> </label>
       </fieldset>
       <fieldset>
-        <legend>Filtrar por Pé:</legend>
+        <legend>Filtrar Pé:</legend>
         <label>
           <input type="checkbox" name="feet" value="Destro" />
           Destro</label>
@@ -116,7 +116,7 @@
         </label>
       </fieldset>
       <fieldset>
-        <legend>Filtrar Idade por mais:</legend>
+        <legend>Filtrar Idade:</legend>
         <label>
           <input type="radio" name="order" value="asc" />
           Novo</label>
