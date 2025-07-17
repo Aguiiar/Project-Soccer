@@ -16,6 +16,7 @@
 
  button {
  	height: 34px;
+	cursor: pointer;
  }
 
  h1 {
@@ -77,6 +78,10 @@
  	padding-right: 0px;
  }
 
+ .footLabel {
+  	padding-right: 3px;
+ 		
+  	}
 
  .formPlayersTeam>form>fieldset {
  	display: flex;
@@ -120,7 +125,7 @@
  .editBtn {
  	padding: 5px 5px;
  	color: black;
- 	background-color: rgb(255, 255, 0);
+ 	background: rgb(255, 255, 13);
  	border: none;
  	text-decoration: none;
  	border-radius: 5px;
@@ -130,7 +135,7 @@
  .deleteBtn {
  	padding: 5px 5px;
  	border: none;
- 	background-color: rgb(255, 0, 0);
+ 	background-color:red;
  	color: white;
  	text-decoration: none;
  	border-radius: 5px;
@@ -141,6 +146,16 @@
  .btn:hover,
  .btnFilterToggleAndSearch:hover {
  	background: rgb(0, 50, 255);
+
+ }
+ 
+ .deleteBtn:hover {
+ 	background: rgb(170, 0, 0);
+
+ }
+
+ .editBtn:hover {
+ 		background: rgb(255, 255, 128);
 
  }
 
@@ -563,6 +578,7 @@
 
  	.footLabel {
  		display: block;
+		
  	}
 
  	footer>p {
