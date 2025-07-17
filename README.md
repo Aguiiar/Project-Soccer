@@ -67,8 +67,6 @@ O sistema é composto por duas entidades principais: **Time** e **Jogador**, e c
 
 O campo de **posição do jogador** utiliza um **`<select>` dinâmico carregado via fetch()** em **JavaScript**. As opções de posição (ex: atacante, zagueiro, meia, goleiro) são obtidas de um arquivo **local JSON**, que simula uma API de dados.
 
-> ⚠️ A ideia inicial era utilizar uma API pública online para popular o select, porém como não foi encontrada uma fonte confiável, optei por um **arquivo JSON local** para garantir a independência do front-end.
-
 ---
 
 ## Interação Front-End e Back-End 🎨
