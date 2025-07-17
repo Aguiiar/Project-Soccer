@@ -116,7 +116,6 @@ Ele está pronto para ser expandido com novos recursos ou integrado com APIs ext
 
 Visualize abaixo as telas do sistema em funcionamento:
 
----
 
 ![Tela 1](./img/project-soccer-1.png)
 
@@ -212,5 +211,4 @@ Visualize abaixo as telas do sistema em funcionamento:
 
 ![Tela 24](./img/project-soccer-24.png)
 
----
 
