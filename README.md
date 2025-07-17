@@ -111,29 +111,106 @@ Este projeto demonstra minhas habilidades com Java, Spring Boot, Thymeleaf e int
 
 Ele está pronto para ser expandido com novos recursos ou integrado com APIs externas futuramente. ⚙️🚀
 
-### 🖼️ Telas do Projeto
 
-![Tela 1](./img/project-soccer-1.png)  
-![Tela 2](./img/project-soccer-2.png)  
-![Tela 3](./img/project-soccer-3.png)  
-![Tela 4](./img/project-soccer-4.png)  
-![Tela 5](./img/project-soccer-5.png)  
-![Tela 6](./img/project-soccer-6.png)  
-![Tela 7](./img/project-soccer-7.png)  
-![Tela 8](./img/project-soccer-8.png)  
-![Tela 9](./img/project-soccer-9.png)  
-![Tela 10](./img/project-soccer-10.png)  
-![Tela 11](./img/project-soccer-11.png)  
-![Tela 12](./img/project-soccer-12.png)  
-![Tela 13](./img/project-soccer-13.png)  
-![Tela 14](./img/project-soccer-14.png)  
-![Tela 15](./img/project-soccer-15.png)  
-![Tela 16](./img/project-soccer-16.png)  
-![Tela 17](./img/project-soccer-17.png)  
-![Tela 18](./img/project-soccer-18.png)  
-![Tela 19](./img/project-soccer-19.png)  
-![Tela 20](./img/project-soccer-20.png)  
-![Tela 21](./img/project-soccer-21.png)  
-![Tela 22](./img/project-soccer-22.png)  
-![Tela 23](./img/project-soccer-23.png)  
+## 📸 Imagens do Projeto - Soccer Project
+
+Visualize abaixo as telas do sistema em funcionamento:
+
+---
+
+![Tela 1](./img/project-soccer-1.png)
+
+---
+
+![Tela 2](./img/project-soccer-2.png)
+
+---
+
+![Tela 3](./img/project-soccer-3.png)
+
+---
+
+![Tela 4](./img/project-soccer-4.png)
+
+---
+
+![Tela 5](./img/project-soccer-5.png)
+
+---
+
+![Tela 6](./img/project-soccer-6.png)
+
+---
+
+![Tela 7](./img/project-soccer-7.png)
+
+---
+
+![Tela 8](./img/project-soccer-8.png)
+
+---
+
+![Tela 9](./img/project-soccer-9.png)
+
+---
+
+![Tela 10](./img/project-soccer-10.png)
+
+---
+
+![Tela 11](./img/project-soccer-11.png)
+
+---
+
+![Tela 12](./img/project-soccer-12.png)
+
+---
+
+![Tela 13](./img/project-soccer-13.png)
+
+---
+
+![Tela 14](./img/project-soccer-14.png)
+
+---
+
+![Tela 15](./img/project-soccer-15.png)
+
+---
+
+![Tela 16](./img/project-soccer-16.png)
+
+---
+
+![Tela 17](./img/project-soccer-17.png)
+
+---
+
+![Tela 18](./img/project-soccer-18.png)
+
+---
+
+![Tela 19](./img/project-soccer-19.png)
+
+---
+
+![Tela 20](./img/project-soccer-20.png)
+
+---
+
+![Tela 21](./img/project-soccer-21.png)
+
+---
+
+![Tela 22](./img/project-soccer-22.png)
+
+---
+
+![Tela 23](./img/project-soccer-23.png)
+
+---
+
 ![Tela 24](./img/project-soccer-24.png)
+
+---
+
